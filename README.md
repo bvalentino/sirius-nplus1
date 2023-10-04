@@ -1,4 +1,4 @@
-# Sirius RoR
+# Sirius RoR — N+1 code assignment
 
 ## 📋 Requirements
 
