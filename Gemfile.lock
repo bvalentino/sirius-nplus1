@@ -74,6 +74,9 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     capybara (3.39.2)
       addressable
       matrix
@@ -91,6 +94,8 @@ GEM
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -256,6 +261,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    uniform_notifier (1.16.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -275,8 +281,10 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bullet
   capybara
   debug
+  faker
   importmap-rails
   jbuilder
   puma (~> 5.0)

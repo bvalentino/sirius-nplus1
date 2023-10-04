@@ -30,6 +30,11 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  # Load seeds
+  config.before(:suite) do
+    Rails.application.load_seed
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = Rails.root.join('spec/fixtures').to_s
 
@@ -60,4 +65,19 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Bullet configuration
+  config.before do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.raise = true # raise an error if N+1 query occurs
+    Bullet.start_request
+  end
+  config.after do
+    Bullet.perform_out_of_channel_notifications if Bullet.notification?
+    Bullet.end_request
+    Bullet.enable = false
+    Bullet.bullet_logger = false
+    Bullet.raise = false
+  end
 end
