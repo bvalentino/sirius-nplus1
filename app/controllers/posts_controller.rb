@@ -1,3 +1,5 @@
 class PostsController < ApplicationController
-  def index; end
+  def index
+    @posts = Post.includes(author: [:country]).order(:published_at)
+  end
 end

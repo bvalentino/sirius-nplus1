@@ -6,7 +6,7 @@
   </div>
 
   <div class="mt-6 space-y-3">
-    <% Post.order(:published_at).each do |post| %>
+    <% @posts.each do |post| %>
       <%= render post %>
     <% end %>
   </div>
